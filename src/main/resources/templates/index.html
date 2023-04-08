@@ -9,15 +9,35 @@
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
-      <div class="page-title">Prototype of online Shopping cart</div>
+      <div class="page-title">Ete-ta-ity</div>
       <div class="demo-container">
-         <h3>Demo</h3>
+         <h3>Relax</h3>
          <ul>
             <li>Buy online</li>
-            <li>Admin pages</li>
-            <li>Reports</li>
+            <li>Fast delivery</li>
+            <li>Payment on delivery</li>
          </ul>
+         <div class="search" style="background-color: #3333; width: 250px; margin-right: auto; margin-left: auto; margin-top: -25px" >	
+      		<input style="height: 40px" type="search" placeholder="Search here" />
+      		<a href="##"><b>Search</b> </a>
       </div>
+      </div>
+      
+      <div class="flex-box">
+      <div class="home-prod-view" th:each="listproduct : ${listproduct}">
+         <ul>
+             <li> <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${listproduct.code}|}" /></a></li> 
+            <li>Name: <span th:utext="${listproduct.name}"></span></li>
+            <li>Price: <span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}"></span></li>
+            <li>
+            <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
+            </li>
+            </ul>
+            </div>
+          </div>  
+      
+       <th:block th:include="/display"></th:block>
       
       <th:block th:include="/_footer"></th:block>
       

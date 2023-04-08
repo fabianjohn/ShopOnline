@@ -1,7 +1,9 @@
 package com.fabiscode.controller;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.fabiscode.dao.OrderDAO;
 import com.fabiscode.dao.ProductDAO;
 import com.fabiscode.entity.Product;
@@ -28,6 +31,7 @@ import com.fabiscode.validator.CustomerFormValidator;
 
 //import entity.Product;
 import form.CustomerForm;
+import form.ProductForm;
 import model.CartInfo;
 import model.CustomerInfo;
 import model.ProductInfo;
@@ -89,8 +93,8 @@ public class MainController {
 	   public String listProductHandler(Model model, //
 	         @RequestParam(value = "name", defaultValue = "") String likeName,
 	         @RequestParam(value = "page", defaultValue = "1") int page) {
-	      final int maxResult = 5;
-	      final int maxNavigationPage = 10;
+	      final int maxResult = 10;
+	      final int maxNavigationPage = 5;
 
 	      PaginationResult<ProductInfo> result = productDAO.queryProducts(page, //
 	            maxResult, maxNavigationPage, likeName);
@@ -274,5 +278,13 @@ public class MainController {
 	      response.getOutputStream().close();
 	   }
 
-
+/* My ideal work*/
+	// Product List
+	   @GetMapping("/listpro")
+		public String viewHomePage(Model model) {
+			List<Product> listproduct = productDAO.findAll(); 
+			model.addAttribute("listproduct", listproduct);
+			System.out.print("Get / ");
+			return "index";
+		}
 }

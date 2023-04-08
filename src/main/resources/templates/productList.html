@@ -10,12 +10,16 @@
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
-      <div class="page-title">Product List</div>
+      <div class="page-title" style="background-color: none; width: 200px">Product List</div>
+      <div class="search" style="background-color: #3333; width: 250px; margin-right: auto; margin-left: auto; margin-top: -25px" >	
+      		<input style="height: 40px" type="search" placeholder="Search here" />
+      		<a href="##"><b>Search</b> </a>
+      </div>
       
       <div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}">
          <ul>
-             <li><img class="product-image"
-               th:src="@{|/productImage?code=${prodInfo.code}|}" /></li> 
+             <li> <a th:href="@{|/buyProduct?code=${prodInfo.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${prodInfo.code}|}" /></a></li> 
             <li>Code: <span th:utext="${prodInfo.code}"></span></li>
             <li>Name: <span th:utext="${prodInfo.name}"></span></li>
             <li>Price: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
