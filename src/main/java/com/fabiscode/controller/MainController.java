@@ -18,9 +18,11 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -287,4 +289,18 @@ public class MainController {
 			System.out.print("Get / ");
 			return "index";
 		}
+	   
+	   @RequestMapping(value = "/productDetail")
+  	 public ModelAndView findJob(Product product, @RequestParam("code") String code) {
+		   if(code !=null) {
+			   product = this.productDAO.findProduct(code);
+		   }
+  	 ModelAndView mv = new ModelAndView();
+  	 mv.addObject("obj", product);
+  	 mv.setViewName("item_detail");
+  	 
+  	 return mv;
+   }
+	   
+	   
 }

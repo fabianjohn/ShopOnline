@@ -2,14 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title> Shop Online</title>
+      <title>LaptopSpace</title>
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
    </head>
    <body>
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
-      <div class="page-title">Ete-ta-ity</div>
+      
+      
+      <div class="page-title">Ete-ta-ity
+          <th:block th:include="/slide"></th:block>
+           <th:block th:include="/slide3"></th:block> 
+      </div>
       <div class="demo-container">
          <h3>Relax</h3>
          <ul>
@@ -25,15 +30,16 @@
       
       <div class="flex-box">
       <div class="home-prod-view" th:each="listproduct : ${listproduct}">
-         <ul>
-             <li> <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
-               th:src="@{|/productImage?code=${listproduct.code}|}" /></a></li> 
-            <li>Name: <span th:utext="${listproduct.name}"></span></li>
-            <li>Price: <span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}"></span></li>
-            <li>
+         
+              <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${listproduct.code}|}" /></a><br>
+            Name: <span th:utext="${listproduct.name}"></span><br>
+            Price: <span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}"></span><br>
+            <h5><a th:href="@{|/productDetail?code=${listproduct.code}&name=${listproduct.name}&price=${listproduct.price} |}">See Detail</a></h5>
+            
             <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
-            </li>
-            </ul>
+            
+            
             </div>
           </div>  
       

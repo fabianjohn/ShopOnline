@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+<body>
+	 <th:block th:include="/_header"></th:block>
+	 <div style="float: left"> <a href="/listpro">Go back</a></div>
+	 
+	<div>
+		
+		<div class="home-prod-view" th:each="obj : ${obj}">
+		 <a th:href="@{|/buyProduct?code=${obj.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${obj.code}|}" /></a><br>
+     	Code:<b><span th:utext="${obj.code}"></span></b><br>
+		Name:<b><span th:utext="${obj.name}"></span></b><br>
+		Price: <b><span th:utext="${obj.price}"></span></b>
+		<b><span  style="position: absolute; right: 80px; width: 400px; background-color: yellow; height: 50px; top: 80px">Product Details</span></b>
+		
+		<a th:href="@{|/buyProduct?code=${obj.code}|}"><b style="color: red">Add to Cart</b></a>
+		
+	</div>	
+	</div>
+</body>
+</html>

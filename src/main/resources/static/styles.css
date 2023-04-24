@@ -10,7 +10,7 @@ body {
     max-width: 1200px;
     min-width: 360px;
     margin: 0px auto;
-    background: rgb(192, 192, 192);
+    background: #F8F8FF;
     padding:0px 5px;
     text-align:center;
 }
@@ -92,13 +92,13 @@ body {
  
 .product-image {
     width: 220px;
-    height: 140px;
+    height: 240px;
     padding: 5px;
 }
 
 .product-image:hover {
     opacity: 5;
-    background-color: #f2f2f2f2
+    background-color: #FFA500
 }
 
 
@@ -153,15 +153,83 @@ table td {
 .flex-box{
 		display: flex;
 		flex-wrap: wrap;
-		background-color:f2f2f2;
+		background-color:#FFFFFF;
 		margin-right: auto;
-		margin-left: auto;
-		
+		margin-left: auto;		
 }  
 
 .home-prod-view{
 		margin-right: auto;
 		margin-left: auto;
 	
-}		
-		
+}	
+
+.home-prod-view {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 250px;
+    height: 50%;
+    display: inline-block;
+    text-align:left;
+}
+ 
+ .home-prod-view input {
+    
+    width: 50px;
+    
+}
+ 
+
+.slide-container {
+	position:absolute;
+   text-align: left;
+    border-bottom: 1px solid #ccc;
+    position: relative; 
+    width: 300px;
+    height: 20%; 
+    top:-20px;
+      
+}	
+
+.slideshow-container{
+            max-width: 1300px;
+            position: relative;
+            margin: auto;
+        }
+        
+        
+         .gallery-container img {
+            margin-top: auto;
+            box-shadow: 5px 10px 10px 5px;
+            padding: 15px;
+            
+           
+        }
+        
+        
+ image{
+      height: 20%
+ }
+ 
+ 
+.slide3-container {
+	position:absolute;
+	float: right;
+	margin-top: -100px;
+	right: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    width: 300px;
+    height: 20%;
+    top: 240px; 
+   
+      
+}	
+
+.slideshow3-container{
+	        margin-top: 20px;
+            max-width: 1300px;
+            position: relative;
+            margin: auto;
+        }
+        		
